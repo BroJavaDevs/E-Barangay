@@ -1,0 +1,44 @@
+{
+  "name": "e-barangay",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "serve": "vite preview",
+    "start": "vite --host",
+    "dev": "vite",
+    "dev:android": "cap open android",
+    "dev:ios": "cap open ios",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "add:android": "bunx cap add android",
+    "add:ios": "bunx cap add ios",
+    "sync": "cap sync",
+    "copy": "cap copy"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/app": "6.0.1",
+    "@capacitor/core": "^6.1.2",
+    "@capacitor/haptics": "6.0.1",
+    "@capacitor/keyboard": "6.0.2",
+    "@capacitor/status-bar": "6.0.1",
+    "@ionic/react": "^8.0.0-rc.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "6.1.2",
+    "@eslint/js": "^9.9.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "eslint": "^9.9.0",
+    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-refresh": "^0.4.9",
+    "globals": "^15.9.0",
+    "typescript": "^5.5.3",
+    "typescript-eslint": "^8.0.1",
+    "vite": "^5.4.1"
+  }
+}
