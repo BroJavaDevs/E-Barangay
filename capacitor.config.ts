@@ -5,7 +5,7 @@ const config: CapacitorConfig = {
   appName: 'E-Barangay App',
   webDir: 'build',
   server: {
-    url: 'http://192.168.2.144:5173',
+    url: 'http://192.168.8.255:5173',
     cleartext: true
   }
 };
