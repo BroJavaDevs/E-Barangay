@@ -3,10 +3,11 @@ import { createRootRoute, Outlet } from '@tanstack/react-router'
 
 export const Route = createRootRoute({
   component: () => (
-    <main className='bg-gray-100'>
-      <Navbar />
-      
-      <Outlet />
-    </main>
+    <>
+      <main className='bg-gray-100'>
+        <Navbar />
+        <Outlet />
+      </main>
+    </>
   ),
 })
