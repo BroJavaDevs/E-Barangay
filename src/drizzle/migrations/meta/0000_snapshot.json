@@ -1,0 +1,62 @@
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "prevId": "",
+  "version": "5",
+  "dialect": "mysql",
+  "tables": {
+    "tbl_announcements": {
+      "name": "tbl_announcements",
+      "columns": {
+        "id": {
+          "autoincrement": true,
+          "name": "id",
+          "type": "int(11)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "title": {
+          "autoincrement": false,
+          "name": "title",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "body": {
+          "autoincrement": false,
+          "name": "body",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "image": {
+          "autoincrement": false,
+          "name": "image",
+          "type": "blob",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "postedAt": {
+          "default": "'current_timestamp()'",
+          "autoincrement": false,
+          "name": "postedAt",
+          "type": "datetime",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "compositePrimaryKeys": {},
+      "indexes": {},
+      "foreignKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  },
+  "internal": {
+    "tables": {},
+    "indexes": {}
+  }
+}

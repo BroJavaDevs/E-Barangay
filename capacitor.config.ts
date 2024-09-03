@@ -6,7 +6,7 @@ const config: CapacitorConfig = {
   webDir: 'build',
   server: {
     url: 'https://barangay82.brojava.com',
-    cleartext: true
+    cleartext: false
   }
 };
 

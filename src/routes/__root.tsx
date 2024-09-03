@@ -1,10 +1,7 @@
 import Navbar from '@/components/Navbar'
-import { fetchPosts } from '@/utils/fetchPosts'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 
-export const Route = createRootRoute<{
-  fetchPosts: typeof fetchPosts
-}>({
+export const Route = createRootRoute({
   component: () => (
     <main className='bg-gray-100'>
       <Navbar />

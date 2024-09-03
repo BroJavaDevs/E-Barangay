@@ -14,7 +14,10 @@
     "add:android": "bunx cap add android",
     "add:ios": "bunx cap add ios",
     "sync": "cap sync",
-    "copy": "cap copy"
+    "copy": "cap copy",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun src/drizzle/migrate.ts",
+    "db:introspect": "drizzle-kit introspect"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.2",
@@ -27,15 +30,17 @@
     "@radix-ui/react-icons": "^1.3.0",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@rollup/rollup-linux-x64-gnu": "^4.6.1",
     "@tanstack/react-router": "^1.52.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "drizzle-orm": "^0.33.0",
     "lucide-react": "^0.438.0",
+    "mysql2": "^3.11.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "tailwind-merge": "^2.5.2",
-    "tailwindcss-animate": "^1.0.7",
-    "@rollup/rollup-linux-x64-gnu": "^4.6.1"
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
     "@capacitor/cli": "6.1.2",
@@ -47,6 +52,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "autoprefixer": "^10.4.20",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^9.9.0",
     "eslint-plugin-react-hooks": "^5.1.0-rc.0",
     "eslint-plugin-react-refresh": "^0.4.9",
