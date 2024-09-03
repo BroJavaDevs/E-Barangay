@@ -1,0 +1,15 @@
+import Navbar from '@/components/Navbar'
+import { fetchPosts } from '@/utils/fetchPosts'
+import { createRootRoute, Outlet } from '@tanstack/react-router'
+
+export const Route = createRootRoute<{
+  fetchPosts: typeof fetchPosts
+}>({
+  component: () => (
+    <>
+      <Navbar />
+      
+      <Outlet />
+    </>
+  ),
+})
