@@ -6,10 +6,10 @@ export const Route = createRootRoute<{
   fetchPosts: typeof fetchPosts
 }>({
   component: () => (
-    <>
+    <main className='bg-gray-100'>
       <Navbar />
       
       <Outlet />
-    </>
+    </main>
   ),
 })
