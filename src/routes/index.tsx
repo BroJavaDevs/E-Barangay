@@ -1,4 +1,5 @@
 
+import { useAuth } from '@/components/AuthContext'
 import PostsLoader from '@/components/PostsLoader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -25,7 +26,7 @@ const ErrorPosts: false | ErrorRouteComponent | null | undefined = ({ error, res
 }
 
 export const fetchPosts = async () => {
-  //await new Promise(resolve => setTimeout(resolve, 1500))
+  await new Promise(resolve => setTimeout(resolve, 1000))
   const res = await fetch(import.meta.env.VITE_API_URL+'/posts')
   const data = await res.json() as Post[]
   // Convert postedAt from string to Date
@@ -47,8 +48,9 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
+  const agent = useAuth()
   const posts = Route.useLoaderData()
-
+  console.log(agent)
   return (
     <ScrollArea className='w-full h-full'>
       <div className='flex mx-auto flex-col gap-4 lg:gap-8 my-0 lg:my-8'>
@@ -63,11 +65,13 @@ function Home() {
                 }
               </CardDescription>
             </CardHeader>
-            <CardContent className='px-0'>
+            <CardContent className='px-0 w-full'>
               <div className='px-2 lg:px-4 pb-4'>
                 {post.body}
               </div>
-              {post.image && <img className='border' src={post.image} alt='tite' />}    
+              <div className='w-full'>
+                {post.image && <img className='border mx-auto' src={post.image} alt='tite' />}    
+              </div>
             </CardContent>
           </Card>
         ))}
