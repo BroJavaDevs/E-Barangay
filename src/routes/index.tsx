@@ -1,5 +1,10 @@
 
-import { createFileRoute } from '@tanstack/react-router'
+import PostsLoader from '@/components/PostsLoader'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { ScrollArea } from '@/components/ui/scroll-area'
+import { createFileRoute, ErrorRouteComponent } from '@tanstack/react-router'
 
 type Post = {
   id: number,
@@ -10,20 +15,64 @@ type Post = {
   postedAt: string
 }
 
-export const fetchPosts = async () => {
-  const res = await fetch(import.meta.env.VITE_API_URL)
-  const data = await res.json() as Post[]
+const ErrorPosts: false | ErrorRouteComponent | null | undefined = ({ error, reset }) => {
+  return (
+    <div className='flex items-center justify-center w-full h-full'>
+      <p className='text-2xl'>{error.message}</p>
+      <Button onClick={() => reset()}>Retry</Button>
+    </div>
+  )
+}
 
+export const fetchPosts = async () => {
+  //await new Promise(resolve => setTimeout(resolve, 1500))
+  const res = await fetch(import.meta.env.VITE_API_URL+'/posts')
+  const data = await res.json() as Post[]
   // Convert postedAt from string to Date
   const posts = data.map(post => ({
     ...post,
     postedAt: new Date(post.postedAt)
   }));
 
+  if(!res.ok) throw new Error('Failed to fetch posts')
+
   return posts
 }
 
 export const Route = createFileRoute('/')({
   loader: () => fetchPosts(),
+  pendingComponent: PostsLoader,
+  errorComponent: ErrorPosts,
+  component: Home
 })
+
+function Home() {
+  const posts = Route.useLoaderData()
+
+  return (
+    <ScrollArea className='w-full h-full'>
+      <div className='flex mx-auto flex-col gap-4 lg:gap-8 my-0 lg:my-8'>
+        {posts.map((post) => (
+          <Card key={post.id} className='w-full rounded-none'>
+            <CardHeader className='px-4'>
+              <CardTitle className='text-2xl'>{post.title}</CardTitle>
+              <CardDescription>
+                <Badge className='rounded-full bg-green-400 hover:bg-green-500'>{post.position}</Badge> {
+                post.postedAt.toLocaleDateString('en-US', { dateStyle: 'full' }) +
+                ' ' + post.postedAt.toLocaleTimeString('en-US', { timeStyle: 'short' })
+                }
+              </CardDescription>
+            </CardHeader>
+            <CardContent className='px-0'>
+              <div className='px-2 lg:px-4 pb-4'>
+                {post.body}
+              </div>
+              {post.image && <img className='border' src={post.image} alt='tite' />}    
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </ScrollArea>
+  )
+}
 
