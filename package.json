@@ -14,10 +14,7 @@
     "add:android": "npx cap add android",
     "add:ios": "npx cap add ios",
     "sync": "cap sync",
-    "copy": "cap copy",
-    "db:generate": "drizzle-kit generate",
-    "db:migrate": "bun src/drizzle/migrate.ts",
-    "db:introspect": "drizzle-kit introspect"
+    "copy": "cap copy"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.2",
