@@ -19,7 +19,6 @@ function Root() {
         <Navbar setOpen={setOpen} />
         <main className='w-full'>
           <LoginDrawer open={open} setOpen={setOpen} />
-          
           <div className='flex flex-col mx-auto max-w-screen-lg'>
             <AddPost />
             <Outlet />

@@ -30,6 +30,7 @@
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-scroll-area": "^1.1.0",
     "@radix-ui/react-slot": "^1.1.0",
+    "@radix-ui/react-switch": "^1.1.0",
     "@radix-ui/react-toast": "^1.2.1",
     "@rollup/rollup-linux-x64-gnu": "^4.6.1",
     "@tanstack/react-router": "^1.52.5",
