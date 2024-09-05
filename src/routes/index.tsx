@@ -27,7 +27,7 @@ const ErrorPosts: false | ErrorRouteComponent | null | undefined = ({ error, res
 
 export const fetchPosts = async () => {
   await new Promise(resolve => setTimeout(resolve, 1000))
-  const res = await fetch('https://barangay82.brojava.com/api'+'/posts')
+  const res = await fetch('https://barangay82.brojava.com/api/posts')
   const data = await res.json() as Post[]
   // Convert postedAt from string to Date
   const posts = data.map(post => ({
