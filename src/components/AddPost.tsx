@@ -6,7 +6,7 @@ import { Card, CardContent, CardTitle } from './ui/card'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { useAuth } from './AuthContext'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import {
   Dialog,
   DialogContent,
@@ -14,11 +14,19 @@ import {
   DialogHeader,
 } from "@/components/ui/dialog"
 import { Textarea } from '@/components/ui/textarea'
+import { PushNotifications } from '@capacitor/push-notifications'
 import { Switch } from "@/components/ui/switch"
 
 export default function AddPost() {
   const [open, setOpen] = useState(false)
   const { isAuthenticated } = useAuth()
+
+  
+
+  const handlePostSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+
+  }
   
   if(isAuthenticated) {
     return (
@@ -49,6 +57,7 @@ export default function AddPost() {
               className='w-full rounded-3xl bg-muted p-5 focus-visible:ring-2 focus-visible:ring-orange-500'
               placeholder='Description'
             />
+            <Button className='bg-orange-500' onClick={handlePostSubmit}>Post</Button>
           </DialogContent>
         </Dialog>
       </div>
