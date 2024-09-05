@@ -33,3 +33,4 @@ jobs:
           FOLDER: combined
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg} - Combined Build and Backend"
+#test1
