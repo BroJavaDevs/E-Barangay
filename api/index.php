@@ -1,10 +1,11 @@
 <?php
-$allowedOrigins = ['https://barangay82.brojava.com', 'http://localhost:5173', 'http://192.168.2.144:5173'];
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+// $allowedOrigins = ['https://barangay82.brojava.com', 'http://localhost:5173', 'http://192.168.2.144:5173'];
+// $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-if (in_array($origin, $allowedOrigins)) {
-  header("Access-Control-Allow-Origin: $origin");
-}
+// if (in_array($origin, $allowedOrigins)) {
+//   header("Access-Control-Allow-Origin: $origin");
+// }
+header("Access-Control-Allow-Origin: * ");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
