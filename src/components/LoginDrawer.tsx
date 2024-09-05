@@ -44,7 +44,7 @@ export default function LoginDrawer({ open, setOpen }: Props) {
     try {
       setState('verifying')
       await new Promise(resolve => setTimeout(resolve, 1000))
-      const response = await fetch(import.meta.env.VITE_API_URL+'/login', {
+      const response = await fetch('https://barangay82.brojava.com/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -62,6 +62,10 @@ export default function LoginDrawer({ open, setOpen }: Props) {
       
       setState('success')
       setOpen(false)
+      toast({
+        title: 'Login Success',
+        description: 'You are now logged in',
+      })
       form.reset()
     } catch (error: any) {
       setState('idle')

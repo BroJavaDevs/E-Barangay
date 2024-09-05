@@ -17,6 +17,7 @@ export default function Navbar({ setOpen }: Props) {
   const handleEnd = () => {
     clearTimeout(holdLogin)
   }
+  
   return (
     <nav className="w-full bg-orange-400">
       <div className="h-[3px] bg-orange-600 "/>
@@ -28,7 +29,12 @@ export default function Navbar({ setOpen }: Props) {
             onTouchStart={handleStart}
             onTouchEnd={handleEnd}
           >Announcements</h1>
-          <h2 className="font-bold text-white">{data?.user.username}</h2>
+          {data?.user.username && (
+            <h2 className="font-bold text-white cursor-pointer select-none"
+            onClick={() => setOpen(true)}
+              >{data.user.username}
+            </h2>
+          )}
         </div>
       </div>
     </nav>
