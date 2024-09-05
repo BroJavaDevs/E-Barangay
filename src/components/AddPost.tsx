@@ -21,11 +21,37 @@ export default function AddPost() {
   const [open, setOpen] = useState(false)
   const { isAuthenticated } = useAuth()
 
-  
+  const registerPushNotifications = async () => {
+    
+    // Request permission to use push notifications
+    const permission = await PushNotifications.requestPermissions();
+    if (permission.receive === 'granted') {
+      // Register for push notifications
+      await PushNotifications.register();
+
+      // Listen for push notifications
+      PushNotifications.addListener('pushNotificationReceived', (notification) => {
+        console.log('Notification received:', notification);
+        // Display notification content to user
+      });
+
+      // Handle notification tap event
+      PushNotifications.addListener('pushNotificationActionPerformed', (notification) => {
+        console.log('Notification action performed:', notification);
+        // Navigate to the message or perform an action
+      });
+    }
+    useEffect(() => {
+      let flag = false;
+      if(flag) {
+        registerPushNotifications();
+      }
+    }, []);
+  }
 
   const handlePostSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-
+    
   }
   
   if(isAuthenticated) {
