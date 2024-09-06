@@ -43,7 +43,6 @@ export default function LoginDrawer({ open, setOpen }: Props) {
     await new Promise(resolve => setTimeout(resolve, 500))
     try {
       setState('verifying')
-      await new Promise(resolve => setTimeout(resolve, 1000))
       const response = await fetch('https://barangay82.brojava.com/api/login', {
         method: 'POST',
         headers: {
@@ -57,7 +56,7 @@ export default function LoginDrawer({ open, setOpen }: Props) {
       if(!response.ok) {
         throw new Error(result.message || 'Invalid username or password!')
       }
-
+      
       login(result.token)
       
       setState('success')

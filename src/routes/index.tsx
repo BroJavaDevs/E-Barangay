@@ -48,9 +48,8 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
-  const agent = useAuth()
   const posts = Route.useLoaderData()
-  console.log(agent)
+
   return (
     <ScrollArea className='w-full h-full'>
       <div className='flex mx-auto flex-col gap-4 lg:gap-8 my-0 lg:my-8'>
