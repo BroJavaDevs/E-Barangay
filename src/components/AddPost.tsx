@@ -114,9 +114,11 @@ export default function AddPost() {
   };
 
   const onSubmit = async (data: z.infer<typeof schema>) => {
+    let notified = isNotified ? 'all' : 'none';
+    let visibility = isPrivate ? 'private' : 'public';
     setLoading(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log(data);
+    console.log({...data}, notified, visibility);
     setLoading(false);
     toast({
       title: 'Post Success',
