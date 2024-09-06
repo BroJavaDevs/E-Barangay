@@ -221,7 +221,7 @@ export default function AddPost() {
                       <FormField
                         control={form.control}
                         name='image'
-                        render={({ field }) => (
+                        render={({ }) => (
                           <FormItem>
                             <FormControl>
                               <Input
