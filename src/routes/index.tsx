@@ -1,5 +1,4 @@
 
-import { useAuth } from '@/components/AuthContext'
 import PostsLoader from '@/components/PostsLoader'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
