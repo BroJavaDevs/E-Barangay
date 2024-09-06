@@ -1,11 +1,11 @@
 <?php
-// $allowedOrigins = ['https://barangay82.brojava.com', 'http://localhost:5173', 'http://192.168.2.144:5173'];
-// $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$allowedOrigins = ['https://barangay82.brojava.com', 'http://localhost:5173'];
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
 
-// if (in_array($origin, $allowedOrigins)) {
-//   header("Access-Control-Allow-Origin: $origin");
-// }
-header("Access-Control-Allow-Origin: * ");
+if (in_array($origin, $allowedOrigins)) {
+  header("Access-Control-Allow-Origin: $origin");
+}
+//header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
@@ -28,6 +28,9 @@ Flight::route('POST /login', function() {
 
   $username = Flight::request()->data['username'];
   $password = Flight::request()->data['password'];
+  // $user_ip = Flight::request()->data['user_ip'];
+  // $user_agent = Flight::request()->data['user_agent'];
+  // $device = Flight::request()->data['device'];
 
   // Fetch user from database
   $stmt = $pdo->prepare('SELECT * FROM tbl_users WHERE username = ?');
@@ -37,6 +40,10 @@ Flight::route('POST /login', function() {
   if (!$user || !password_verify($password, $user['password'])) {
     return Flight::json(['message' => 'Invalid username or password.'], 401);
   }
+
+  // Log the user in
+  // $log = $pdo->prepare('INSERT INTO tbl_logs (user_id, user_ip, user_agent, action, device) VALUES (?, ?, ?, ?, ?)');
+  // $log->execute([$user['id'], $user_ip, $user_agent, 'login', $device]);
 
   // Create JWT payload
   $payload = [
