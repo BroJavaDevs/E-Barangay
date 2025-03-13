@@ -68,7 +68,7 @@ function Home() {
                 {post.body}
               </div>
               <div className='w-full'>
-                {post.image && <img className='border mx-auto' src={post.image} alt='tite' />}    
+          
               </div>
             </CardContent>
           </Card>
