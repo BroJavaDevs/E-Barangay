@@ -26,7 +26,7 @@ export default function CardPost({ id, title, body, image, position, postedAt }:
         <div className='px-2 lg:px-4'>
           {body}
         </div>
-        <img className='border' src={image} alt='tite' />
+        <img className='border' src={image} alt='image' />
       </CardContent>
     </Card>
   )
