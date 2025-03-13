@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from './ui/badge'
-
+//THIS WILL BE A COMMENT
 type Props = {
   id: number,
   title: string,
@@ -26,7 +26,7 @@ export default function CardPost({ id, title, body, image, position, postedAt }:
         <div className='px-2 lg:px-4'>
           {body}
         </div>
-        <img className='border' src={image} alt='image' />
+        <img className='border' src={image} alt='image'/>
       </CardContent>
     </Card>
   )
